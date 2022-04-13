@@ -1,0 +1,8 @@
+{
+    "DB":{
+        "default":{
+            "username":"root",
+            "password":"123456"
+        }
+    }
+}
