@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/DomineCore/brisk"
-	"github.com/DomineCore/briskdemo/internal/app"
 )
 
 type Database struct {
@@ -13,11 +12,10 @@ type Database struct {
 }
 
 func Config(c *brisk.Context) {
-	myapp := app.GetApp()
-	username := myapp.Conf.GetString("DB.default.username")
+	username := brisk.Config.GetString("Databases.default.username")
 	db := &Database{
 		Username: username,
-		Password: myapp.Conf.GetString("DB.default.password"),
+		Password: brisk.Config.GetString("Databases.default.password"),
 	}
 	c.WriteJSON(http.StatusOK, db)
 }
